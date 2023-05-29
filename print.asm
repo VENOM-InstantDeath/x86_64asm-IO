@@ -14,4 +14,3 @@ _loop:
 	inc rax
 	inc rsi
 	jmp _loop
-_ret: ret
