@@ -2,15 +2,13 @@ section .data
 	c db 1
 section .text
 	global _start
-_chomp: 			;; Replace \n with null terminator (rsi,rdx)
+_chomp: 			;; Replace \n with null terminator (rsi)
 	mov r10,0 		;; Number of loops
 	call __chomp
 	sub rsi,r10
 	mov rax,rsi
 	ret
 __chomp:
-	cmp r10,rdx
-	je _ret
 	cmp byte [rsi], 0
 	je _ret
 	cmp byte [rsi], 10
